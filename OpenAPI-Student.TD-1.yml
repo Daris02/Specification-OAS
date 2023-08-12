@@ -2,6 +2,7 @@ openapi: '3.0.2'
 info:
   title: API Student
   version: '1.0'
+  description: Specificaion API - TD1
 servers:
   - url: https://api.STD21099.com
 paths:
