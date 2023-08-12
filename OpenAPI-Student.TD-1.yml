@@ -54,8 +54,8 @@ paths:
                   type: string
                   example: STD22001
       responses:
-        202:
-          description: Student Added Successfully
+        201:
+          description: Student created successfully
           content:
             application/json:
               schema:
