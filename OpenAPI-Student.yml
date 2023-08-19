@@ -10,6 +10,7 @@ paths:
     get:
       tags:
         - student
+      description: Get all students
       responses:
         200:
           description: OK
@@ -38,9 +39,43 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Student'
-
         500:
           description: Server error
+  
+  /teacher:
+    get:
+      tags:
+        - teacher
+      description: Get all teachers
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: array
+                items:
+                  $ref: '#/components/schemas/Teacher'
+        500:
+          description: Server error
+
+  /cours:
+    get:
+      tags:
+        - cours
+      description: Get all cours
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cours'
+        500:
+          description: Server error
+
 
 components:
   schemas:
