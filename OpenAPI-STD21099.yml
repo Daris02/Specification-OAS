@@ -1,0 +1,436 @@
+openapi: '3.0.2'
+info:
+  title: API Student
+  version: '1.0'
+  description: Specificaion API - TD
+servers:
+  - url: https://STD21099.com/api
+
+paths:
+
+  /students:
+    get:
+      tags:
+        - Student
+      description: Get all students
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+        500:
+          description: Server error
+
+  /student:
+    post:
+      tags:
+        - Student
+      description: Add new student
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewStudent'
+      responses:
+        201:
+          description: Student created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        500:
+          description: Server error
+
+  /student/{id}:
+    get:
+      tags:
+        - Student
+      description: Get student by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        500:
+          description: Server error
+
+    put:
+      tags:
+        - Student
+      description: Update student by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/NewStudent'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        500:
+          description: Server error
+
+    delete:
+      tags:
+        - Student
+      description: Delete student by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            text/plain: 
+              schema: 
+                type: string
+                example: Delete successfully
+        500:
+          description: Server error
+
+
+  /teachers:
+    get:
+      tags:
+        - Teacher
+      description: Get all teachers
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: array
+                items:
+                  $ref: '#/components/schemas/Teacher'
+        500:
+          description: Server error
+
+    post:
+      tags:
+        - Teacher
+      description: Add new teacher
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewTeacher'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: array
+                items:
+                  $ref: '#/components/schemas/Teacher'
+        500:
+          description: Server error
+
+  /teacher/{id}:
+    get:
+      tags:
+        - Teacher
+      description: Get teacher by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: array
+                items:
+                  $ref: '#/components/schemas/Teacher'
+        500:
+          description: Server error
+
+    put:
+      tags:
+        - Teacher
+      description: Update teacher by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: 
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/NewTeacher'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/Teacher'
+        500:
+          description: Server error
+
+    delete:
+      tags:
+        - Teacher
+      description: Delete teacher by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: 
+            type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            text/plain: 
+              schema: 
+                type: string
+                example: Delete successfully
+        500:
+          description: Server error
+
+
+  /courses:
+    get:
+      tags:
+        - Course
+      description: Get all course
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: array
+                items:
+                  $ref: '#/components/schemas/Course'
+        500:
+          description: Server error
+
+  /course:
+    post:
+      tags:
+        - Course
+      description: Add new course
+      requestBody:
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/NewCourse'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Course'
+        500:
+          description: Server error
+
+  /course/{id}:
+    get:
+      tags:
+        - Course
+      description: Get course by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: 
+            type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Course'
+        500:
+          description: Server error
+    
+    put:
+      tags:
+        - Course
+      description: Update course by id 
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/NewCourse'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/Course'
+        500:
+          description: Server error
+
+    delete:
+      tags:
+        - Course
+      description: Delete course by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: 
+            type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            text/plain:
+              schema: 
+                type: string
+                example: Delete successfully
+        500:
+          description: Server error
+
+components:
+  schemas:
+    Student:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        refStudent:
+          type: string
+          example: STD22001
+        firstName:
+          type: string
+          example: Doe
+        lastName:
+          type: string
+          example: John
+        email:
+          type: string
+          example: hei.john.doe@gmail.com
+        isActive:
+          type: boolean
+          example: false
+
+    NewStudent:
+      type: object
+      properties:
+        refStudent:
+          type: string
+          example: STD22001
+        firstName:
+          type: string
+          example: Doe
+        lastName:
+          type: string
+          example: John
+        email:
+          type: string
+          example: hei.john.doe@gmail.com
+        isActive:
+          type: boolean
+          example: false
+
+    Teacher:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        firstName:
+          type: string
+          example: Doe
+        lastName:
+          type: string
+          example: John
+        email:
+          type: string
+          example: john.doe@hei.school
+        courses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Course'
+
+    NewTeacher:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: Doe
+        lastName:
+          type: string
+          example: John
+        email:
+          type: string
+          example: john.doe@hei.school
+        courses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Course'
+
+    Course:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: algorithme
+        refCourse:
+          type: string
+          example: PROG2
+        duration:
+          type: integer
+          example: 20
+
+    NewCourse:
+      type: object
+      properties:
+        name:
+          type: string
+          example: algorithme
+        refCourse:
+          type: string
+          example: PROG2
+        duration:
+          type: integer
+          example: 20
