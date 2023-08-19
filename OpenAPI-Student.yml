@@ -63,6 +63,35 @@ components:
         email:
           type: string
           example: hei.john.doe@gmail.com
-        isQuit:
+        isActive:
           type: boolean
           example: false
+    Teacher:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        firstName:
+          type: string
+          example: Doe
+        lastName:
+          type: string
+          example: John
+        email:
+          type: string
+          example: john.doe@hei.school
+    Cours:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        refCours:
+          type: string
+          example: PROG2
+        description:
+          type: string
+          example: algorithme
